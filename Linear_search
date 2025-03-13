@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main(){
+    int n;
+    printf("enter the length of array:");
+    scanf("%d",&n);
+    int arr[n];
+    int i;
+    for(i=0;i<n;i++){
+        arr[i]=rand()%10+1;
+    }
+    for(i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
+    clock_t t;
+    t=clock();
+    int count=0;
+    int search = rand()%10+1;
+    for(i=0;i<n;i++){
+        if(arr[i]==search){
+            printf("\n %d found",arr[i]);
+            break;
+        }
+        count+=1;
+
+    }
+    t=clock()-t;
+    double time_taken=((double)t)/CLOCKS_PER_SEC;
+    printf("\n the program took %f seconds to execute",time_taken);
+    printf("\n count = %d", count);
+
+
+
+
+    return 0;
+}
+
+
+#OUTPUT
+enter the length of array:10
+8 10 4 9 1 3 5 9 4 10 
+ 1 found
+ the program took 0.000010 seconds to execute
+ count = 4
+Process finished with exit code 0
